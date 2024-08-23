@@ -1,0 +1,6 @@
+numpy=1.26.0
+h5py==3.8.0
+pysam==0.22.1
+numba==0.60.0
+ont-fast5-api==4.1.3
+pod5==0.3.15
