@@ -14,6 +14,8 @@ RUN git clone https://github.com/WGLab/DeepMod2 \
 # Final stage
 FROM pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime 
 
+ARG BUILD_VERSION=v0.3.2
+
 ################## METADATA ######################
 LABEL base_image="pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime"
 LABEL version="1"
@@ -26,6 +28,8 @@ LABEL about.license_file="https://github.com/WGLab/DeepMod2/blob/main/LICENSE"
 LABEL about.license="MIT License"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="DeepMod2"
+
+WORKDIR /workspace
 
 COPY --from=source /app/ /workspace/
 
