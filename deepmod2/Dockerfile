@@ -5,7 +5,7 @@ ARG BUILD_VERSION=v0.3.2
 
 WORKDIR /app
 
-# Clone the code from github
+# Clone the codes from github
 RUN git clone https://github.com/WGLab/DeepMod2 \
    && cd DeepMod2 \
    && git checkout $BUILD_VERSION \
