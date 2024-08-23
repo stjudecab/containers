@@ -14,6 +14,8 @@ RUN git clone https://github.com/WGLab/DeepMod2 \
 # Final stage
 FROM python:3.9.19-slim-bullseye AS final
 
+ARG BUILD_VERSION=v0.3.2
+
 ################## METADATA ######################
 LABEL base_image="python:3.9.19-slim-bullseye"
 LABEL version="1"
@@ -29,6 +31,8 @@ LABEL extra.identifiers.biotools="DeepMod2"
 
 RUN pip install --no-cache-dir torch==2.1.2 --index-url https://download.pytorch.org/whl/cpu
 
+WORKDIR /workspace
+
 COPY --from=source /app/ /workspace
 
 COPY requirements.txt /workspace/
@@ -36,8 +40,6 @@ COPY requirements.txt /workspace/
 # copy conda env file
 RUN pip install --no-cache-dir -r /workspace/requirements.txt \
   && rm /workspace/requirements.txt
-
-WORKDIR workspace
 
 CMD ["python", "DeepMod2/deepmod2", "--help"]
 
