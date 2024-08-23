@@ -3,6 +3,8 @@ FROM alpine/git:2.45.2 AS source
 # define build version argument
 ARG BUILD_VERSION=v0.3.2
 
+WORKDIR /app
+
 # Clone the code from github
 RUN git clone https://github.com/WGLab/DeepMod2 \
    && cd DeepMod2 \
@@ -25,12 +27,13 @@ LABEL about.license="MIT License"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="DeepMod2"
 
-COPY --from=source /git/DeepMod2 /workspace/DeepMod2
+COPY --from=source /app/ /workspace/
 
 COPY requirements.txt /workspace/
 
 # copy conda env file
-RUN pip install --no-cache-dir -r /workspace/requirements.txt
+RUN pip install --no-cache-dir -r /workspace/requirements.txt \
+  && rm /workspace/requirements.txt
 
 CMD ["python", "DeepMod2/deepmod2", "--help"]
 
