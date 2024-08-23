@@ -2,9 +2,6 @@ name: build docker images
 
 on:
   push:
-    paths:
-      - 'deepmod2/**'
-      - 'deepmod2-gpu/**'
     branches:
       - main
   pull_request:
@@ -22,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -36,23 +33,23 @@ jobs:
 
       - name: Read version file
         id: get_version
-        run: |
-          VERSION=$(cat ${{ matrix.app }}/version)
-          echo "::set-output name=version::$VERSION"
+        run: echo "version=$(cat ${{ matrix.app }}/version)" >> $GITHUB_OUTPUT
 
       - name: Check if files changed
         id: files_changed
         run: |
-          if git diff-tree --no-commit-id --name-only -r HEAD | grep "^${{ matrix.app }}/"; then
-            echo "::set-output name=changed::true"
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^${{ matrix.app }}/"; then
+            echo "changed=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=changed::false"
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Build and push Docker image
-        if: ${{ steps.files_changed.outputs.changed == 'true' }}
-        run: |
-          cd ${{ matrix.app }}
-          docker build --build-arg="BUILD_VERSION=${{ steps.get_version.outputs.version }}" -t ghcr.io/${{ github.repository_owner }}/${{ matrix.app }}:${{ steps.get_version.outputs.version }} .
-          docker push ghcr.io/${{ github.repository_owner }}/${{ matrix.app }}:${{ steps.get_version.outputs.version }}
-
+        if: steps.files_changed.outputs.changed == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: ${{ matrix.app }}
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/${{ matrix.app }}:${{ steps.get_version.outputs.version }}
+          build-args: |
+            BUILD_VERSION=${{ steps.get_version.outputs.version }}
