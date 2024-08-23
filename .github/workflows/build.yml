@@ -7,6 +7,9 @@ on:
       - 'deepmod2-gpu/**'
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-and-push:
