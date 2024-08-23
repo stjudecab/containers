@@ -43,7 +43,7 @@ jobs:
       - name: Check if files changed
         id: files_changed
         run: |
-          if git --no-pager --name-only show HEAD | grep "^${{ matrix.app }}/"; then
+          if git diff-tree --no-commit-id --name-only -r HEAD | grep "^${{ matrix.app }}/"; then
             echo "::set-output name=changed::true"
           else
             echo "::set-output name=changed::false"
