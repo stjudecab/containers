@@ -41,9 +41,9 @@ jobs:
         id: files_changed
         run: |
           if git diff-tree --no-commit-id --name-only -r HEAD | grep -q "^${{ matrix.app }}/"; then
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed='true'" >> $GITHUB_OUTPUT
           else
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed='false'" >> $GITHUB_OUTPUT
           fi
 
       - name: Build and push Docker image
