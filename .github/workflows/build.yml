@@ -38,7 +38,7 @@ jobs:
       - name: Check if files changed
         id: files_changed
         run: |
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^${{ matrix.app }}/"; then
+          if git diff-tree --no-commit-id --name-only -r HEAD | grep -q "^${{ matrix.app }}/"; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
