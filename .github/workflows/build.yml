@@ -2,6 +2,9 @@ name: build docker images
 
 on:
   push:
+    paths:
+      - 'deepmod2/**'
+      - 'deepmod2-gpu/**'
     branches:
       - main
   pull_request:
