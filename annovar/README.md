@@ -28,7 +28,7 @@ This will display the help message for `Annovar`. To run specific commands, repl
 
 ## Features
 
-- Based on perl 5.26.2 base image
+- Based on perl 5.26.2 image
 - Annovar version: v20.06 (default, can be changed during build)
 
 ## License
