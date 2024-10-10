@@ -5,6 +5,7 @@ on:
     paths:
       - 'deepmod2/**'
       - 'deepmod2-gpu/**'
+      - 'annovar/**'
     branches:
       - main
   pull_request:
@@ -19,6 +20,7 @@ jobs:
         app:
           - deepmod2
           - deepmod2-gpu
+          - annovar
 
     steps:
       - name: Checkout code
