@@ -17,18 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app:
-          - deepmod2
-          - deepmod2-gpu
-          - annovar
-        platforms:
-          - linux/amd64
-          - linux/arm64
         include:
           - app: deepmod2
             platforms: linux/amd64
           - app: deepmod2-gpu
             platforms: linux/amd64
+          - app: annovar
+            platforms: [linux/amd64, linux/arm64]
 
     steps:
       - name: Checkout code
