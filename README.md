@@ -1,4 +1,7 @@
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/stjudecab/containers/build.yml?style=for-the-badge&color=%23a6e3a1)
+
 # Containers
+
 Bioinformatics containers used in St. Jude CAB
 
 This repository hosts a collection of **Dockerfiles** for various bioinformatics tools.
