@@ -23,7 +23,7 @@ jobs:
           - app: deepmod2-gpu
             platforms: linux/amd64
           - app: annovar
-            platforms: [linux/amd64, linux/arm64]
+            platforms: linux/amd64,linux/arm64
 
     steps:
       - name: Checkout code
