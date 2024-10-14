@@ -3,7 +3,7 @@ FROM perl:5.26.2-slim
 # set software version
 ARG BUILD_VERSION=v20.06
 
-################## METADATA ######################
+################# METADATA #####################
 LABEL base_image="perl:5.26.2-slim"
 LABEL version="1"
 LABEL software="Annovar"
