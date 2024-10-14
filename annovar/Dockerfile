@@ -4,7 +4,7 @@ FROM perl:5.26.2-slim
 ARG BUILD_VERSION=v20.06
 
 ################## METADATA ######################
-LABEL base_image="docker.io/perl:5.26.2-slim"
+LABEL base_image="perl:5.26.2-slim"
 LABEL version="1"
 LABEL software="Annovar"
 LABEL software.version="${BUILD_VERSION}"
