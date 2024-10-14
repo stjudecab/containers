@@ -1,10 +1,10 @@
-FROM quay.io/biocontainers/perl:5.26.2
+FROM perl:5.26.2-slim
 
 # set software version
 ARG BUILD_VERSION=v20.06
 
 ################## METADATA ######################
-LABEL base_image="quay.io/biocontainers/perl:5.26.2"
+LABEL base_image="docker.io/perl:5.26.2-slim"
 LABEL version="1"
 LABEL software="Annovar"
 LABEL software.version="${BUILD_VERSION}"
