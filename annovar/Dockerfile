@@ -1,10 +1,10 @@
-FROM perl:5.38.2-slim
+FROM perl:5.38.2-slim-threaded
 
 # set software version
 ARG BUILD_VERSION=v20.06
 
 ################# METADATA #####################
-LABEL base_image="perl:5.38.2-slim"
+LABEL base_image="perl:5.38.2-slim-threaded"
 LABEL version="1"
 LABEL software="Annovar"
 LABEL software.version="${BUILD_VERSION}"
