@@ -31,7 +31,12 @@ LABEL extra.identifiers.biotools="fastcat"
 
 COPY --from=source /opt/conda/envs/fastcat /opt/conda/envs/fastcat
 
-RUN echo "micromamba activate fastcat" >> ~/.bashrc
+# Won't be activated unless you we login via /bin/bash command
+# RUN echo "micromamba activate fastcat" >> ~/.bashrc 
+
+# set fastcat as the default environment
+# !!! this step is important or you cannot packages installed in this environment
+ENV ENV_NAME fastcat
 
 WORKDIR /app
 
