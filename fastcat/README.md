@@ -2,6 +2,7 @@
 
 This Dockerfile builds a container for Fastcat, a tool that provides simple utilities to concatenate .fastq(.gz) files whilst creating a summary of the sequences.
 
+
 ## Build
 
 To build the image:
