@@ -6,6 +6,7 @@ on:
       - 'deepmod2/**'
       - 'deepmod2-gpu/**'
       - 'annovar/**'
+      - 'fastcat/**'
     branches:
       - main
   pull_request:
@@ -23,6 +24,8 @@ jobs:
           - app: deepmod2-gpu
             platforms: linux/amd64
           - app: annovar
+            platforms: linux/amd64,linux/arm64
+          - app: fastcat
             platforms: linux/amd64,linux/arm64
 
     steps:
