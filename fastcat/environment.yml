@@ -1,0 +1,14 @@
+name: fastcat
+channels:
+    - nanoporetech
+    - conda-forge
+    - bioconda
+dependencies:
+    - python ==3.8.*
+    - ezcharts ==0.11.2
+    - pysam ==0.22.0
+    - fastcat ==0.18.6
+    - pandas <2.0.0
+    - epi2melabs ==0.0.53
+    - samtools ==1.19.2
+    - csvtk
