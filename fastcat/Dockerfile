@@ -37,6 +37,7 @@ COPY --from=source /opt/conda/envs/fastcat /opt/conda/envs/fastcat
 # set fastcat as the default environment
 # !!! this step is important or you cannot packages installed in this environment
 ENV ENV_NAME fastcat
+ENV PATH=/opt/conda/envs/fastcat/bin:$PATH
 
 WORKDIR /app
 
