@@ -9,7 +9,7 @@ WORKDIR /app
 ################## METADATA ######################
 LABEL base_image="python:3.9.19-slim-bullseye"
 LABEL version="1"
-LABEL software="Pandas"
+LABEL software="pandas"
 LABEL software.version="${BUILD_VERSION}"
 LABEL about.summary="Flexible and powerful data analysis / manipulation library for Python"
 LABEL about.home="https://github.com/pandas-dev/pandas"
