@@ -6,6 +6,9 @@ ARG BUILD_VERSION=2.1.2
 # set workdir
 WORKDIR /app
 
+# install procps
+RUN apt-get update && apt-get install -y procps
+
 ################## METADATA ######################
 LABEL base_image="python:3.9.19-slim-bullseye"
 LABEL version="1"
