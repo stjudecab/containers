@@ -27,6 +27,8 @@ jobs:
             platforms: linux/amd64,linux/arm64
           - app: fastcat
             platforms: linux/amd64,linux/arm64
+          - app: pandas
+            platforms: linux/amd64,linux/arm64
 
     steps:
       - name: Checkout code
