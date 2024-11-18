@@ -8,6 +8,7 @@ on:
       - 'annovar/**'
       - 'fastcat/**'
       - 'pandas/**'
+      - 'scpy/**'
     branches:
       - main
   pull_request:
@@ -29,6 +30,8 @@ jobs:
           - app: fastcat
             platforms: linux/amd64,linux/arm64
           - app: pandas
+            platforms: linux/amd64,linux/arm64
+          - app: scpy
             platforms: linux/amd64,linux/arm64
 
     steps:
