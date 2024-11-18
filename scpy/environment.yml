@@ -1,0 +1,17 @@
+name: scpy
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - python ==3.8.19
+    - h5py ==3.11.0
+    - numpy ==1.23.5
+    - scipy ==1.10.1
+    - pandas ==2.0.3
+    - polars ==0.20.22
+    - editdistance ==0.6.2
+    - gcc
+    - pip
+    - pip:
+      - umi_tools ==1.1.2
