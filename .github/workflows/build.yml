@@ -10,6 +10,7 @@ on:
       - 'pandas/**'
       - 'scpy/**'
       - 'ggplot2/**'
+      - 'jaffa/**'
     branches:
       - main
   pull_request:
@@ -36,6 +37,8 @@ jobs:
             platforms: linux/amd64,linux/arm64
           - app: ggplot2
             platforms: linux/amd64,linux/arm64
+          - app: jaffa
+            platforms: linux/amd64
 
     steps:
       - name: Checkout code
