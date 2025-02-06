@@ -11,6 +11,7 @@ on:
       - 'scpy/**'
       - 'ggplot2/**'
       - 'jaffa/**'
+      - 'fusion-report/**'
     branches:
       - main
   pull_request:
@@ -39,6 +40,8 @@ jobs:
             platforms: linux/amd64,linux/arm64
           - app: jaffa
             platforms: linux/amd64
+          - app: fusion-report
+            platforms: linux/amd64,linux/arm64
 
     steps:
       - name: Checkout code
