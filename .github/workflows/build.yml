@@ -12,6 +12,7 @@ on:
       - 'ggplot2/**'
       - 'jaffa/**'
       - 'fusion-report/**'
+      - 'igv-tools/**'
     branches:
       - main
   pull_request:
@@ -41,6 +42,8 @@ jobs:
           - app: jaffa
             platforms: linux/amd64
           - app: fusion-report
+            platforms: linux/amd64,linux/arm64
+          - app: igvtools
             platforms: linux/amd64,linux/arm64
 
     steps:
