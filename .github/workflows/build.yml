@@ -13,6 +13,7 @@ on:
       - 'jaffa/**'
       - 'fusion-report/**'
       - 'igv-tools/**'
+      - 'rsvrecon/**'
     branches:
       - main
   pull_request:
@@ -44,6 +45,8 @@ jobs:
           - app: fusion-report
             platforms: linux/amd64,linux/arm64
           - app: igvtools
+            platforms: linux/amd64,linux/arm64
+          - app: rsvrecon
             platforms: linux/amd64,linux/arm64
 
     steps:
