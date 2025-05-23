@@ -14,6 +14,7 @@ on:
       - 'fusion-report/**'
       - 'igv-tools/**'
       - 'rsvrecon/**'
+      - 'rsvrecon_report/**'
     branches:
       - main
   pull_request:
@@ -47,6 +48,8 @@ jobs:
           - app: igvtools
             platforms: linux/amd64,linux/arm64
           - app: rsvrecon
+            platforms: linux/amd64,linux/arm64
+          - app: rsvrecon_report
             platforms: linux/amd64,linux/arm64
 
     steps:
